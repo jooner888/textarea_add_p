@@ -1,0 +1,28 @@
+﻿<textarea id="xq_intro" style="width:400px;height:200px"></textarea>
+<input type="button" id="test" value="测试">
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //用<p></p>标签替换回车
+    function ReplaceSeperator(html) {
+        var i;
+        var result = "<p>";
+        var c;
+        for (i = 0; i < html.length; i++) {
+            c = html.substr(i, 1);
+            if (c == "\n")
+                result = result + "</p><p>";
+            else if (c != "\r")
+                result = result + c;
+        }
+        return result;
+    }
+
+	$("#test").on("click",function(){
+	    var html = $.trim($("#xq_intro").val());
+		var newHtml = ReplaceSeperator(html)+"</p>";
+	    alert(newHtml);
+	})
+
+</script>

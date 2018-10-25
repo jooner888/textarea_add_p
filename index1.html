@@ -1,0 +1,28 @@
+﻿<textarea id="xq_intro" style="width:400px;height:200px"></textarea>
+<input type="button" id="test" value="测试1">
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //用中文分号替换英文分号、中英文逗号或者回车
+function ReplaceSeperator(mobiles) {
+    var i;
+    var result = "";
+    var c;
+    for (i = 0; i < mobiles.length; i++) {
+        c = mobiles.substr(i, 1);
+        if (c == ";" || c == "," || c == "，" || c == "\n")
+            result = result + "；";
+        else if (c != "\r")
+            result = result + c;
+    }
+    return result;
+}
+
+	$("#test").on("click",function(){
+	    var html = $.trim($("#xq_intro").val());
+		var newHtml = ReplaceSeperator(html);
+	    alert(newHtml);
+	})
+
+</script>
