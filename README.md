@@ -11,7 +11,7 @@
             c = html.substr(i, 1);<br>
             if (c == "\n")<br>
                 result = result + "&lt;/p&gt;&lt;p&gt;";<br>
-            else if (c != "\r")<br><br>
+            else if (c != "\r")<br>
                 result = result + c;<br>
         }<br>
         return result;<br>
